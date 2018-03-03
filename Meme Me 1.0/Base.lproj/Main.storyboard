@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,36 +29,54 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iyN-Uh-jqc" userLabel="Bottom Toolbar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyN-Uh-jqc" userLabel="Bottom Toolbar">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="nq9-0O-OVd" userLabel="Camera Button"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dCM-en-sSy"/>
                                     <barButtonItem title="Albums" id="eff-0a-nyb" userLabel="Photo Album"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKP-Ay-MzT" userLabel="Bottom Text">
-                                <rect key="frame" x="16" y="518" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKP-Ay-MzT" userLabel="Bottom Text">
+                                <rect key="frame" x="16" y="548" width="343" height="0.0"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-ld-atR">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-ld-atR" userLabel="Top Toolbar">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="kRC-64-SG4"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="T00-xf-AT3"/>
                                     <barButtonItem systemItem="cancel" id="IXf-c5-Saa"/>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJh-ky-NxM" userLabel="Top Text ">
+                                <rect key="frame" x="16" y="74" width="343" height="28"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Wmi-ld-atR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1g6-em-nBL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZKP-Ay-MzT" secondAttribute="trailing" constant="16" id="3Yt-Sg-jrv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wmi-ld-atR" secondAttribute="trailing" id="5Yi-6U-Rxe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vbI-HX-W7y" secondAttribute="bottom" id="5ue-hS-5ul"/>
+                            <constraint firstItem="ZKP-Ay-MzT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CPe-A0-XDe"/>
+                            <constraint firstItem="SJh-ky-NxM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="GS8-bm-Xdx"/>
+                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="firstBaseline" secondItem="ZKP-Ay-MzT" secondAttribute="baseline" constant="17" symbolType="layoutAnchor" id="Lpb-n6-dgI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vbI-HX-W7y" secondAttribute="trailing" id="O1o-VM-SRB"/>
+                            <constraint firstItem="Wmi-ld-atR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ODb-5W-vGT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SJh-ky-NxM" secondAttribute="trailing" constant="16" id="QD3-WX-85s"/>
+                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UZ8-CT-OuB"/>
+                            <constraint firstItem="Wmi-ld-atR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VXe-MG-Sp0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iyN-Uh-jqc" secondAttribute="bottom" id="gv3-kI-AIx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iyN-Uh-jqc" secondAttribute="trailing" id="iVa-aA-uc1"/>
+                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kHi-9l-mG9"/>
+                            <constraint firstItem="SJh-ky-NxM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="o6u-Pk-Dae"/>
+                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="top" secondItem="ZKP-Ay-MzT" secondAttribute="bottom" constant="75" id="rEF-NV-pjp"/>
                             <constraint firstItem="vbI-HX-W7y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z4g-M3-TRs"/>
                             <constraint firstItem="vbI-HX-W7y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="z9t-tZ-9Yz"/>
                         </constraints>
