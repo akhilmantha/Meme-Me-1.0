@@ -17,10 +17,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Me View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Meme_Me_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeMe_ViewController" customModule="Meme_Me_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,9 +32,17 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyN-Uh-jqc" userLabel="Bottom Toolbar">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="camera" id="nq9-0O-OVd" userLabel="Camera Button"/>
+                                    <barButtonItem systemItem="camera" id="nq9-0O-OVd" userLabel="Camera Button">
+                                        <connections>
+                                            <action selector="pickAnImageCamera:" destination="BYZ-38-t0r" id="XiG-YY-GlI"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dCM-en-sSy"/>
-                                    <barButtonItem title="Albums" id="eff-0a-nyb" userLabel="Photo Album"/>
+                                    <barButtonItem title="Albums" id="eff-0a-nyb" userLabel="Photo Album">
+                                        <connections>
+                                            <action selector="pickAnImageAlbums:" destination="BYZ-38-t0r" id="im0-Pf-bY3"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKP-Ay-MzT" userLabel="Bottom Text">
@@ -46,13 +54,21 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-ld-atR" userLabel="Top Toolbar">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="action" id="kRC-64-SG4"/>
+                                    <barButtonItem systemItem="action" id="kRC-64-SG4" userLabel="Share Button">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="BYZ-38-t0r" id="Q8w-DX-6t6"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="T00-xf-AT3"/>
-                                    <barButtonItem systemItem="cancel" id="IXf-c5-Saa"/>
+                                    <barButtonItem systemItem="cancel" id="IXf-c5-Saa" userLabel="Cancel Button">
+                                        <connections>
+                                            <action selector="cancel:" destination="BYZ-38-t0r" id="9ah-eb-5zZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJh-ky-NxM" userLabel="Top Text ">
-                                <rect key="frame" x="16" y="74" width="343" height="28"/>
+                                <rect key="frame" x="16" y="74" width="343" height="24"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -82,6 +98,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="ImagePickerView" destination="vbI-HX-W7y" id="hDz-yV-88k"/>
+                        <outlet property="bottomText" destination="ZKP-Ay-MzT" id="eeK-EQ-G8B"/>
+                        <outlet property="bottomToolbar" destination="iyN-Uh-jqc" id="uxX-aF-The"/>
+                        <outlet property="cameraButton" destination="nq9-0O-OVd" id="vyA-m1-PBK"/>
+                        <outlet property="cancelButton" destination="IXf-c5-Saa" id="T09-ie-D8m"/>
+                        <outlet property="shareButton" destination="kRC-64-SG4" id="obm-Lc-Jpj"/>
+                        <outlet property="topText" destination="SJh-ky-NxM" id="2P8-oI-wWi"/>
+                        <outlet property="topToolbar" destination="Wmi-ld-atR" id="8fQ-vY-e1X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
