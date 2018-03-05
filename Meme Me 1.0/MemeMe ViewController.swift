@@ -16,7 +16,7 @@ struct Meme{
     var memedImage : UIImage
 }
 
-class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
+class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // MARK Outlets Of The View
     @IBOutlet weak var ImagePickerView: UIImageView!
@@ -43,8 +43,20 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        topText.delegate = self
+        bottomText.delegate = self
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
+        configure(textField: bottomText, withText: "BOTTOM")
+        configure(textField: topText, withText: "TOP")
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        unsubscribeFromKeyboardNotifications()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        subscribeToKeyboardNotifications()
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +82,21 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func shareMeme(_ sender: Any) {
+        let memedImage = generateMemedImage()
+        let activityViewController = UIActivityViewController(activityItems: [memedImage],applicationActivities: nil)
+        
+        present(activityViewController, animated: true)
+        activityViewController.completionWithItemsHandler = {
+            (activity, completed, items, error) in
+            if (completed){
+                self.save(memedImage: memedImage)
+            }
+            if((error) != nil){
+                let alert = UIAlertController(title: "Error", message: "There was a problem saving, go out and try again", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -113,6 +140,45 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     func toolbarState(hiddenBar : Bool){
         topToolbar.isHidden = hiddenBar
         bottomToolbar.isHidden = hiddenBar
+    }
+    
+    
+    //Mark keyboard state and text field methods
+    
+    
+    @objc func keyboardWillShow(_ notification:Notification) {
+        if (bottomText.isFirstResponder){
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        if (bottomText.isFirstResponder){
+            view.frame.origin.y += getKeyboardHeight(notification as Notification)
+        }
+    }
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+    func configure(textField :UITextField, withText text: String){
+        textField.defaultTextAttributes = attributes
+        textField.textAlignment = NSTextAlignment.center
+        textField.text = text
     }
     
 }
