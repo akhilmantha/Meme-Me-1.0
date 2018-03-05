@@ -28,6 +28,17 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
     
+    
+    //MARK stating the text field attributes
+    let attributes : [String : Any] = [
+        NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+        NSAttributedStringKey.font.rawValue: UIFont(name: "ComicSansMS", size: 40) ?? UIFont.systemFont(ofSize: 30),
+        NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+        NSAttributedStringKey.strokeWidth.rawValue : -3.0
+        
+    ]
+    
+    
     //MARK View Life Cycle
 
     override func viewDidLoad() {
