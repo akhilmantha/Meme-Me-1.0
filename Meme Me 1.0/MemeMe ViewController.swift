@@ -97,6 +97,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.present(alert, animated: true, completion: nil)
             }
         }
+        toolbarState(hiddenBar: false)
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -147,14 +148,14 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @objc func keyboardWillShow(_ notification:Notification) {
-        if (bottomText.isFirstResponder){
-            view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomText.isFirstResponder{
+            self.view.frame.origin.y = getKeyboardHeight(notification) * -1
         }
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
-        if (bottomText.isFirstResponder){
-            view.frame.origin.y += getKeyboardHeight(notification as Notification)
+        if bottomText.isFirstResponder{
+           self.view.frame.origin.y = 0
         }
     }
     func subscribeToKeyboardNotifications() {
