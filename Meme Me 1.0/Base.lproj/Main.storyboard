@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vbI-HX-W7y">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="549"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyN-Uh-jqc" userLabel="Bottom Toolbar">
@@ -82,7 +82,7 @@
                             <constraint firstItem="Wmi-ld-atR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1g6-em-nBL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZKP-Ay-MzT" secondAttribute="trailing" constant="16" id="3Yt-Sg-jrv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wmi-ld-atR" secondAttribute="trailing" id="5Yi-6U-Rxe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vbI-HX-W7y" secondAttribute="bottom" id="5ue-hS-5ul"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vbI-HX-W7y" secondAttribute="bottom" constant="44" id="5ue-hS-5ul"/>
                             <constraint firstItem="ZKP-Ay-MzT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CPe-A0-XDe"/>
                             <constraint firstItem="SJh-ky-NxM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="GS8-bm-Xdx"/>
                             <constraint firstItem="iyN-Uh-jqc" firstAttribute="firstBaseline" secondItem="ZKP-Ay-MzT" secondAttribute="baseline" constant="17" symbolType="layoutAnchor" id="Lpb-n6-dgI"/>
@@ -97,7 +97,7 @@
                             <constraint firstItem="SJh-ky-NxM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="o6u-Pk-Dae"/>
                             <constraint firstItem="iyN-Uh-jqc" firstAttribute="top" secondItem="ZKP-Ay-MzT" secondAttribute="bottom" constant="60" id="rEF-NV-pjp"/>
                             <constraint firstItem="vbI-HX-W7y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z4g-M3-TRs"/>
-                            <constraint firstItem="vbI-HX-W7y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="z9t-tZ-9Yz"/>
+                            <constraint firstItem="vbI-HX-W7y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="z9t-tZ-9Yz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
