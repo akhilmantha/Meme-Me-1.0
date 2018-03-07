@@ -12,8 +12,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Comic Sans MS.ttf">
-            <string>ComicSansMS</string>
+        <array key="HelveticaNeueExtras.ttc">
+            <string>HelveticaNeue-CondensedBlack</string>
         </array>
     </customFonts>
     <scenes>
@@ -51,7 +51,7 @@
                                     <constraint firstAttribute="height" constant="28" id="LnO-jU-90v"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-ld-atR" userLabel="Top Toolbar">
@@ -71,9 +71,9 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJh-ky-NxM" userLabel="Top Text ">
-                                <rect key="frame" x="16" y="74" width="343" height="28"/>
+                                <rect key="frame" x="16" y="74" width="343" height="24"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -85,7 +85,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vbI-HX-W7y" secondAttribute="bottom" constant="44" id="5ue-hS-5ul"/>
                             <constraint firstItem="ZKP-Ay-MzT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CPe-A0-XDe"/>
                             <constraint firstItem="SJh-ky-NxM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="GS8-bm-Xdx"/>
-                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="firstBaseline" secondItem="ZKP-Ay-MzT" secondAttribute="baseline" constant="17" symbolType="layoutAnchor" id="Lpb-n6-dgI"/>
+                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="firstBaseline" secondItem="ZKP-Ay-MzT" secondAttribute="baseline" constant="13.5" symbolType="layoutAnchor" id="Lpb-n6-dgI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vbI-HX-W7y" secondAttribute="trailing" id="O1o-VM-SRB"/>
                             <constraint firstItem="Wmi-ld-atR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ODb-5W-vGT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SJh-ky-NxM" secondAttribute="trailing" constant="16" id="QD3-WX-85s"/>

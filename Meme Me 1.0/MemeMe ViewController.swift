@@ -18,7 +18,7 @@ struct Meme{
 
 class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    // MARK Outlets Of The View
+    // MARK: Outlets Of The View
     @IBOutlet weak var ImagePickerView: UIImageView!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -29,17 +29,17 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var bottomToolbar: UIToolbar!
     
     
-    //MARK stating the text field attributes
+    //MARK: stating the text field attributes
     let attributes : [String : Any] = [
         NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-        NSAttributedStringKey.font.rawValue: UIFont(name: "ComicSansMS", size: 40) ?? UIFont.systemFont(ofSize: 30),
+        NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40) ?? UIFont.systemFont(ofSize: 30),
         NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
         NSAttributedStringKey.strokeWidth.rawValue : -3.0
         
     ]
     
     
-    //MARK View Life Cycle
+    //MARK: View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     
-    //MARK IBActions of the view
+    //MARK: IBActions of the view
     
     @IBAction func pickAnImageCamera(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -108,7 +108,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
         dismiss(animated: true, completion: nil)
     }
     
-   //MARK Required Functions
+    //MARK: Required Functions
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -144,7 +144,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     
-    //Mark keyboard state and text field methods
+    //Mark: keyboard state and text field methods
     
     
     @objc func keyboardWillShow(_ notification:Notification) {
