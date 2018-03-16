@@ -13,6 +13,7 @@ struct Meme{
     
     var topText : String
     var bottomText : String
+    var originalImage : UIImage
     var memedImage : UIImage
 }
 
@@ -43,8 +44,6 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        topText.delegate = self
-        bottomText.delegate = self
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         configure(textField: bottomText, withText: "BOTTOM")
         configure(textField: topText, withText: "TOP")
@@ -83,13 +82,14 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func shareMeme(_ sender: Any) {
         let memedImage = generateMemedImage()
+        let originalImage = generateOriginalImage()
         let activityViewController = UIActivityViewController(activityItems: [memedImage],applicationActivities: nil)
         
         present(activityViewController, animated: true)
         activityViewController.completionWithItemsHandler = {
             (activity, completed, items, error) in
             if (completed){
-                self.save(memedImage: memedImage)
+                self.save(memedImage: memedImage, originalImage: originalImage)
             }
             if((error) != nil){
                 let alert = UIAlertController(title: "Error", message: "There was a problem saving, go out and try again", preferredStyle: UIAlertControllerStyle.alert)
@@ -123,8 +123,8 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     dismiss(animated: true, completion: nil)
     }
     
-    func save(memedImage : UIImage){
-        let meme  = Meme(topText: topText.text!, bottomText: bottomText.text!,
+    func save(memedImage : UIImage, originalImage : UIImage){
+        let meme  = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage : originalImage,
                          memedImage: memedImage)
         (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
@@ -136,6 +136,14 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
         UIGraphicsEndImageContext()
         return memedImage
         
+    }
+    func generateOriginalImage() -> UIImage{
+        toolbarState(hiddenBar: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+        let originalImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return originalImage
     }
     
     func toolbarState(hiddenBar : Bool){
@@ -177,6 +185,8 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
         return keyboardSize.cgRectValue.height
     }
     func configure(textField :UITextField, withText text: String){
+        topText.delegate = self
+        bottomText.delegate = self
         textField.defaultTextAttributes = attributes
         textField.textAlignment = NSTextAlignment.center
         textField.text = text
