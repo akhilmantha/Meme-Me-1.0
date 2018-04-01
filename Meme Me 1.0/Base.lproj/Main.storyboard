@@ -272,7 +272,7 @@
         <!--Meme Me Detail View Controller-->
         <scene sceneID="yxD-rX-8zt">
             <objects>
-                <viewController id="7Cg-C5-UBj" customClass="MemeMeDetailViewController" customModule="Meme_Me_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeMeDetailViewController" id="7Cg-C5-UBj" customClass="MemeMeDetailViewController" customModule="Meme_Me_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dsj-xM-qTj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,6 +304,6 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PE1-uM-CaG"/>
+        <segue reference="39W-GQ-N0M"/>
     </inferredMetricsTieBreakers>
 </document>
