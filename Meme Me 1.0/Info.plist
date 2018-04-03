@@ -6,6 +6,8 @@
 	<string>The application needs permission to modify the photos</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use</string>
+	<key>CFBundleDisplayName</key>
+	<string>Meme</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
