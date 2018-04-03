@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>The application needs permission to modify the photos</string>
+	<string>photo library use </string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>photo library use</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use</string>
 	<key>CFBundleDisplayName</key>
