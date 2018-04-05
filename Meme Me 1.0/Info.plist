@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>photo library use </string>
+	<string>$(PRODUCT_NAME)photo library use </string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>photo library use</string>
+	<string>$(PRODUCT_NAME)photo library use</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use</string>
 	<key>CFBundleDisplayName</key>
