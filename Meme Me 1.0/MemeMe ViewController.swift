@@ -154,8 +154,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @objc func keyboardWillShow(_ notification:Notification) {
-        if bottomText.isFirstResponder{
-            self.view.frame.origin.y = getKeyboardHeight(notification) * -1
+       
         }
     }
     
