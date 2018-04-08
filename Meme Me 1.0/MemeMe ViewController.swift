@@ -30,6 +30,9 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var bottomToolbar: UIToolbar!
     
     
+    let textfieldDelegate = TopBottomTextFieldDelegate()
+    
+    
     //MARK: stating the text field attributes
     let attributes : [String : Any] = [
         NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
@@ -44,8 +47,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure(textField: bottomText, withText: "BOTTOM")
-        configure(textField: topText, withText: "TOP")
+        configureTextField()
         // Do any additional setup after loading the view.
     }
     
@@ -94,8 +96,8 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func cancel(_ sender: Any) {
         
         ImagePickerView.image = nil
-        topText.text = "TOP"
-        bottomText.text = "BOTTOM"
+        changeTextFields("", "")
+        changeTextFieldsStatus(true)
         dismiss(animated: true, completion: nil)
     }
     
@@ -111,8 +113,10 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            ImagePickerView.contentMode = UIViewContentMode.scaleAspectFit
             ImagePickerView.image = image
+            ImagePickerView.sizeToFit()
+            changeTextFields("TOP", "BOTTOM")
+            changeTextFieldsStatus(false)
             dismiss(animated: true, completion: nil)
         }
     }
@@ -144,49 +148,70 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
         return originalImage
     }
     
-    func toolbarState(hiddenBar : Bool){
-        topToolbar.isHidden = hiddenBar
-        bottomToolbar.isHidden = hiddenBar
+    func changeBarsStatus(_ status: Bool) {
+        navBar.isHidden = status
+        toolBar.isHidden = status
     }
-    
     
     //Mark: keyboard state and text field methods
     
-    
-    @objc func keyboardWillShow(_ notification:Notification) {
-       
-        }
+    func changeTextFields(_ top: String, _ bottom: String){
+        topText.text = top
+        bottomText.text = bottom
     }
     
-    @objc func keyboardWillHide(_ notification: NSNotification) {
-        if bottomText.isFirstResponder{
-           self.view.frame.origin.y = 0
-        }
+    func changeTextFieldsStatus(_ status: Bool){
+        topText.isHidden = status
+        bottomText.isHidden = status
+   
     }
-    func subscribeToKeyboardNotifications() {
+    // MARK: Subscribtion for keyboard event
+    @objc func subscribeToKeyboardNotifications(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
+    
+    // MARK: Unsubscribtion for keybaord event
     func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    // MARK: right before keyboard showing
+    @objc func keyboardWillShow(_ notification:Notification){
+        if textfieldDelegate.activeTextField == self.bottomText {
+            view.frame.origin.y = -getKeyboardHeight(notification)
+        }
     }
-    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+    
+    // MARK: right before keyboard hide
+    @objc func keyboardWillHide(_ notification:Notification){
+        if textfieldDelegate.activeTextField == self.bottomText {
+            //view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y = 0
+        }
+    }
+    
+    // MARK: get Keyboard height.
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat{
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
     }
-    func configure(textField :UITextField, withText text: String){
-        topText.delegate = self
-        bottomText.delegate = self
-        textField.defaultTextAttributes = attributes
-        textField.textAlignment = NSTextAlignment.center
-        textField.text = text
-    }
     
+    //Mark: configure text field
+    func configureTextField(){
+        // Top and Bottom Text default attributes.
+        topText.defaultTextAttributes = attributes
+        bottomText.defaultTextAttributes = attributes
+        topText.textAlignment = NSTextAlignment.center
+        bottomText.textAlignment = NSTextAlignment.center
+        
+        // Text fields delegates
+        topText.delegate = textfieldDelegate
+        bottomText.delegate = textfieldDelegate
+        
+        changeTextFields("", "")
+        changeTextFieldsStatus(true)
+    }
 }
