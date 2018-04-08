@@ -148,11 +148,6 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
         return originalImage
     }
     
-    func changeBarsStatus(_ status: Bool) {
-        navBar.isHidden = status
-        toolBar.isHidden = status
-    }
-    
     //Mark: keyboard state and text field methods
     
     func changeTextFields(_ top: String, _ bottom: String){
@@ -163,7 +158,11 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     func changeTextFieldsStatus(_ status: Bool){
         topText.isHidden = status
         bottomText.isHidden = status
-   
+   }
+    
+    func changeBarStatus(_ status: Bool){
+        topToolbar.isHidden = status
+        bottomToolbar.isHidden = status
     }
     // MARK: Subscribtion for keyboard event
     @objc func subscribeToKeyboardNotifications(){
