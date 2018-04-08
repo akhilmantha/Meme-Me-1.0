@@ -90,7 +90,6 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.present(alert, animated: true, completion: nil)
             }
         }
-        toolbarState(hiddenBar: false)
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -131,7 +130,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
         (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     func generateMemedImage() -> UIImage{
-        toolbarState(hiddenBar: true)
+        changeBarStatus(true)
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawHierarchy(in: view.frame , afterScreenUpdates: true )
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
@@ -140,7 +139,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     func generateOriginalImage() -> UIImage{
-        toolbarState(hiddenBar: true)
+        changeBarStatus(true)
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         let originalImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
