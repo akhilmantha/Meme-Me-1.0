@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RST-Gf-Vmt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RST-Gf-Vmt">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeueExtras.ttc">
-            <string>HelveticaNeue-CondensedBlack</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="rNJ-nY-6YM">
@@ -178,12 +171,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vbI-HX-W7y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vbI-HX-W7y">
                                 <rect key="frame" x="0.0" y="142" width="375" height="543"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyN-Uh-jqc" userLabel="Bottom Toolbar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iyN-Uh-jqc" userLabel="Bottom Toolbar">
                                 <rect key="frame" x="0.0" y="685" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="nq9-0O-OVd" userLabel="Camera Button">
                                         <connections>
@@ -198,7 +193,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKP-Ay-MzT" userLabel="Bottom Text">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKP-Ay-MzT" userLabel="Bottom Text">
                                 <rect key="frame" x="16" y="597" width="343" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="LnO-jU-90v"/>
@@ -207,8 +202,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-ld-atR" userLabel="Top Toolbar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-ld-atR" userLabel="Top Toolbar">
                                 <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="kRC-64-SG4" userLabel="Share Button">
                                         <connections>
@@ -223,35 +219,15 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJh-ky-NxM" userLabel="Top Text ">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJh-ky-NxM" userLabel="Top Text ">
                                 <rect key="frame" x="16" y="142" width="343" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Wmi-ld-atR" firstAttribute="top" secondItem="gdK-7Q-aCO" secondAttribute="top" id="1g6-em-nBL"/>
-                            <constraint firstItem="gdK-7Q-aCO" firstAttribute="trailing" secondItem="ZKP-Ay-MzT" secondAttribute="trailing" constant="16" id="3Yt-Sg-jrv"/>
-                            <constraint firstItem="gdK-7Q-aCO" firstAttribute="trailing" secondItem="Wmi-ld-atR" secondAttribute="trailing" id="5Yi-6U-Rxe"/>
-                            <constraint firstItem="gdK-7Q-aCO" firstAttribute="bottom" secondItem="vbI-HX-W7y" secondAttribute="bottom" constant="44" id="5ue-hS-5ul"/>
-                            <constraint firstItem="ZKP-Ay-MzT" firstAttribute="leading" secondItem="gdK-7Q-aCO" secondAttribute="leading" constant="16" id="CPe-A0-XDe"/>
-                            <constraint firstItem="SJh-ky-NxM" firstAttribute="leading" secondItem="gdK-7Q-aCO" secondAttribute="leading" constant="16" id="GS8-bm-Xdx"/>
-                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="firstBaseline" secondItem="ZKP-Ay-MzT" secondAttribute="baseline" constant="13.5" symbolType="layoutAnchor" id="Lpb-n6-dgI"/>
-                            <constraint firstItem="gdK-7Q-aCO" firstAttribute="trailing" secondItem="vbI-HX-W7y" secondAttribute="trailing" id="O1o-VM-SRB"/>
-                            <constraint firstItem="Wmi-ld-atR" firstAttribute="centerX" secondItem="gdK-7Q-aCO" secondAttribute="centerX" id="ODb-5W-vGT"/>
-                            <constraint firstItem="gdK-7Q-aCO" firstAttribute="trailing" secondItem="SJh-ky-NxM" secondAttribute="trailing" constant="16" id="QD3-WX-85s"/>
-                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="leading" secondItem="gdK-7Q-aCO" secondAttribute="leading" id="UZ8-CT-OuB"/>
-                            <constraint firstItem="Wmi-ld-atR" firstAttribute="leading" secondItem="gdK-7Q-aCO" secondAttribute="leading" id="VXe-MG-Sp0"/>
-                            <constraint firstItem="gdK-7Q-aCO" firstAttribute="bottom" secondItem="iyN-Uh-jqc" secondAttribute="bottom" id="gv3-kI-AIx"/>
-                            <constraint firstItem="gdK-7Q-aCO" firstAttribute="trailing" secondItem="iyN-Uh-jqc" secondAttribute="trailing" id="iVa-aA-uc1"/>
-                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="centerX" secondItem="gdK-7Q-aCO" secondAttribute="centerX" id="kHi-9l-mG9"/>
-                            <constraint firstItem="SJh-ky-NxM" firstAttribute="top" secondItem="gdK-7Q-aCO" secondAttribute="top" constant="54" id="o6u-Pk-Dae"/>
-                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="top" secondItem="ZKP-Ay-MzT" secondAttribute="bottom" constant="60" id="rEF-NV-pjp"/>
-                            <constraint firstItem="vbI-HX-W7y" firstAttribute="leading" secondItem="gdK-7Q-aCO" secondAttribute="leading" id="z4g-M3-TRs"/>
-                            <constraint firstItem="vbI-HX-W7y" firstAttribute="top" secondItem="gdK-7Q-aCO" secondAttribute="top" constant="54" id="z9t-tZ-9Yz"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gdK-7Q-aCO"/>
                     </view>
                     <connections>
