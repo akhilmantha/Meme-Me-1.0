@@ -211,7 +211,7 @@
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKP-Ay-MzT" userLabel="Bottom Text">
-                                <rect key="frame" x="20" y="646" width="334" height="24"/>
+                                <rect key="frame" x="20" y="661" width="334" height="24"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -231,7 +231,7 @@
                             <constraint firstItem="Wmi-ld-atR" firstAttribute="leading" secondItem="gdK-7Q-aCO" secondAttribute="leading" id="3Xw-5K-J2T"/>
                             <constraint firstItem="vbI-HX-W7y" firstAttribute="leading" secondItem="gdK-7Q-aCO" secondAttribute="leading" id="IdQ-cM-Llv"/>
                             <constraint firstItem="gdK-7Q-aCO" firstAttribute="trailing" secondItem="Wmi-ld-atR" secondAttribute="trailing" id="Jc8-u6-pvQ"/>
-                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="top" secondItem="ZKP-Ay-MzT" secondAttribute="bottom" constant="15" id="OZU-1i-iWc"/>
+                            <constraint firstItem="iyN-Uh-jqc" firstAttribute="top" secondItem="ZKP-Ay-MzT" secondAttribute="bottom" id="OZU-1i-iWc"/>
                             <constraint firstItem="Wmi-ld-atR" firstAttribute="top" secondItem="gdK-7Q-aCO" secondAttribute="top" id="Oj6-69-whe"/>
                             <constraint firstItem="SJh-ky-NxM" firstAttribute="top" secondItem="Wmi-ld-atR" secondAttribute="bottom" constant="22" id="TrP-fQ-nKd"/>
                             <constraint firstItem="gdK-7Q-aCO" firstAttribute="trailing" secondItem="SJh-ky-NxM" secondAttribute="trailing" id="W1f-PG-iWH"/>
@@ -294,6 +294,6 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="39W-GQ-N0M"/>
+        <segue reference="PE1-uM-CaG"/>
     </inferredMetricsTieBreakers>
 </document>
