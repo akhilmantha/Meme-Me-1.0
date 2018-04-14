@@ -93,11 +93,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func cancel(_ sender: Any) {
-        
-        ImagePickerView.image = nil
-        changeTextFields("", "")
-        changeTextFieldsStatus(true)
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: Required Functions

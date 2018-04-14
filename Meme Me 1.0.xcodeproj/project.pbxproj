@@ -45,6 +45,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A85F25D2081DAE500AC8199 /* ViewControlers */ = {
+			isa = PBXGroup;
+			children = (
+				6AEAB6C3204A4E42000709F2 /* MemeMe ViewController.swift */,
+				6A355C7F2070BBE600F7A076 /* MemeMeCollectionViewController.swift */,
+				6A355C7D206F5DA600F7A076 /* MemeMeTableViewController.swift */,
+				6A355C812070C2E600F7A076 /* MemeMeDetailViewController.swift */,
+			);
+			path = ViewControlers;
+			sourceTree = "<group>";
+		};
+		6A85F25E2081DC4200AC8199 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6A85F25F2081DC5A00AC8199 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6A85F25F2081DC5A00AC8199 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6AEF17B220713F8300B55839 /* MemeMeCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		6A85F2602081DC8B00AC8199 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6AEAB6B5204A4DF4000709F2 /* Main.storyboard */,
+				6AEAB6BA204A4DF4000709F2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		6AB99B8E20792F8300D61A03 /* textFieldDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -57,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				6AEAB6B0204A4DF4000709F2 /* Meme Me 1.0 */,
-				6AB99B8E20792F8300D61A03 /* textFieldDelegate */,
 				6AEAB6AF204A4DF4000709F2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,15 +109,12 @@
 			isa = PBXGroup;
 			children = (
 				6AEAB6B1204A4DF4000709F2 /* AppDelegate.swift */,
-				6AEAB6C3204A4E42000709F2 /* MemeMe ViewController.swift */,
-				6A355C7F2070BBE600F7A076 /* MemeMeCollectionViewController.swift */,
-				6A355C7D206F5DA600F7A076 /* MemeMeTableViewController.swift */,
-				6A355C812070C2E600F7A076 /* MemeMeDetailViewController.swift */,
-				6AEF17B220713F8300B55839 /* MemeMeCollectionViewCell.swift */,
-				6AEAB6B5204A4DF4000709F2 /* Main.storyboard */,
 				6AEAB6B8204A4DF4000709F2 /* Assets.xcassets */,
-				6AEAB6BA204A4DF4000709F2 /* LaunchScreen.storyboard */,
 				6AEAB6BD204A4DF4000709F2 /* Info.plist */,
+				6A85F2602081DC8B00AC8199 /* Storyboard */,
+				6A85F25E2081DC4200AC8199 /* Views */,
+				6AB99B8E20792F8300D61A03 /* textFieldDelegate */,
+				6A85F25D2081DAE500AC8199 /* ViewControlers */,
 			);
 			path = "Meme Me 1.0";
 			sourceTree = "<group>";
