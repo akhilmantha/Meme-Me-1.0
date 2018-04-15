@@ -169,16 +169,16 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: right before keyboard showing
     @objc func keyboardWillShow(_ notification:Notification){
         if textfieldDelegate.activeTextField == self.bottomText {
-            bottomToolbarBottomConstraint.constant = -200
-            //view.frame.origin.y = -getKeyboardHeight(notification)
+            //bottomToolbarBottomConstraint.constant = -200
+            view.frame.origin.y = -getKeyboardHeight(notification) + 35
         }
     }
     
     // MARK: right before keyboard hide
     @objc func keyboardWillHide(_ notification:Notification){
         if textfieldDelegate.activeTextField == self.bottomText {
-            bottomToolbarBottomConstraint.constant = 0
-            //view.frame.origin.y = 0
+            //bottomToolbarBottomConstraint.constant = 0
+            view.frame.origin.y = 0
         }
     }
     
@@ -194,7 +194,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Top and Bottom Text default attributes.
         textField.defaultTextAttributes = attributes
         textField.textAlignment = NSTextAlignment.center
-        
+        textField.autocorrectionType = .no 
         
         // Text fields delegates
         textField.delegate = textfieldDelegate
