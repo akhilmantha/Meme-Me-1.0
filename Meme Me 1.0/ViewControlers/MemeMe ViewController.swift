@@ -169,7 +169,6 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: right before keyboard showing
     @objc func keyboardWillShow(_ notification:Notification){
         if textfieldDelegate.activeTextField == self.bottomText {
-            //bottomToolbarBottomConstraint.constant = -200
             view.frame.origin.y = -getKeyboardHeight(notification) + 35
         }
     }
@@ -177,7 +176,6 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: right before keyboard hide
     @objc func keyboardWillHide(_ notification:Notification){
         if textfieldDelegate.activeTextField == self.bottomText {
-            //bottomToolbarBottomConstraint.constant = 0
             view.frame.origin.y = 0
         }
     }
