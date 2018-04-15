@@ -9,14 +9,6 @@
 import UIKit
 import Foundation
 
-struct Meme{
-    
-    var topText : String
-    var bottomText : String
-    var originalImage : UIImage
-    var memedImage : UIImage
-}
-
 class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // MARK: Outlets Of The View
@@ -28,6 +20,7 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
+    @IBOutlet weak var bottomToolbarBottomConstraint: NSLayoutConstraint!
     
     
     let textfieldDelegate = TopBottomTextFieldDelegate()
@@ -47,7 +40,8 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTextField()
+        configureTextField(textField: topText)
+        configureTextField(textField: bottomText)
         // Do any additional setup after loading the view.
     }
     
@@ -93,8 +87,8 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func cancel(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
+            self.navigationController?.popViewController(animated: true)
+        }
     
     //MARK: Required Functions
     
@@ -110,14 +104,15 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             ImagePickerView.image = image
             ImagePickerView.sizeToFit()
+            ImagePickerView.contentMode = .scaleAspectFit
             changeTextFields("TOP", "BOTTOM")
             changeTextFieldsStatus(false)
             dismiss(animated: true, completion: nil)
         }
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-    ImagePickerView.image = nil
-    dismiss(animated: true, completion: nil)
+        ImagePickerView.image = nil
+        dismiss(animated: true, completion: nil)
     }
     
     func save(memedImage : UIImage, originalImage : UIImage){
@@ -174,15 +169,16 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: right before keyboard showing
     @objc func keyboardWillShow(_ notification:Notification){
         if textfieldDelegate.activeTextField == self.bottomText {
-            view.frame.origin.y = -getKeyboardHeight(notification)
+            bottomToolbarBottomConstraint.constant = -200
+            //view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
     // MARK: right before keyboard hide
     @objc func keyboardWillHide(_ notification:Notification){
         if textfieldDelegate.activeTextField == self.bottomText {
-            //view.frame.origin.y += getKeyboardHeight(notification)
-            view.frame.origin.y = 0
+            bottomToolbarBottomConstraint.constant = 0
+            //view.frame.origin.y = 0
         }
     }
     
@@ -194,16 +190,15 @@ class MemeMe_ViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     //Mark: configure text field
-    func configureTextField(){
+    func configureTextField(textField: UITextField){
         // Top and Bottom Text default attributes.
-        topText.defaultTextAttributes = attributes
-        bottomText.defaultTextAttributes = attributes
-        topText.textAlignment = NSTextAlignment.center
-        bottomText.textAlignment = NSTextAlignment.center
+        textField.defaultTextAttributes = attributes
+        textField.textAlignment = NSTextAlignment.center
+        
         
         // Text fields delegates
-        topText.delegate = textfieldDelegate
-        bottomText.delegate = textfieldDelegate
+        textField.delegate = textfieldDelegate
+        
         
         changeTextFields("", "")
         changeTextFieldsStatus(true)
